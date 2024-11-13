@@ -1,1 +1,1 @@
-select e.id, concat(e.fname,e.lname) as emp_name, d.name from employee e join department d where e.deptid=d.id order by id
+select e.id, concat(e.fname,e.lname) as emp_name, d.name from {{ source('google_cloud_sqlserver', 'employee') }} e join {{ source('google_cloud_sqlserver', 'department') }} d where e.deptid=d.id order by id
